@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+{{ content }}
+{% endblock %}
+{% block aside %}
+    {% if pages or children %}
+    <aside>
+        {% if pages %}
+        <ul>
+            {% for p in pages %}
+            <li>
+                <a href="{{ p.url }}">{{ p.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% if children %}
+        <hr>
+        {% endif %}
+        {% endif %}
+
+        {% if children %}
+        <ul>
+            {% for p in children %}
+            <li>
+                <a href="{{ p.url }}">{{ p.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </aside>
+    {% endif %}
+{% endblock %}
